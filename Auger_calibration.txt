@@ -1,0 +1,41 @@
+Auger calibration — theory, formula, and CSV rows
+
+Formula used (explainable, digit-by-digit)
+
+We approximate a theoretical volumetric pocket per revolution as:
+
+pocket_vol = area_cross_section * pitch * fill_factor
+where area_cross_section = π * (D/2)^2
+
+Then theoretical volumetric flow (m³/min):
+
+Q_m3_per_min = pocket_vol * RPM * eta
+
+Mass flow (kg/min) = Q_m3_per_min * density.
+
+Example assumed geometry (you can change these):
+	•	auger outer diameter D = 0.08 m
+	•	pitch = 0.04 m
+	•	fill_factor = 0.6 (accounts for not fully filled screw channel)
+	•	density = 1500 kg/m³ (slurry bulk density)
+	•	eta = 0.70 (volumetric efficiency / slip factor)
+
+Compute pocket_vol:
+	•	D/2 = 0.04 m
+	•	area = π * (0.04)^2 = π * 0.0016 = 0.005026548 m² (digit: π ≈ 3.14159265 × 0.0016 = 0.005026548)
+	•	pocket_vol = area * pitch * fill_factor = 0.005026548 * 0.04 * 0.6 = 0.000120637 m³ per revolution (digit: 0.005026548 × 0.04 = 0.000201062; ×0.6 = 0.000120637)
+
+Now sample calculation for RPM = 100:
+	•	revolutions per minute = 100
+	•	Q_m3_min = pocket_vol * RPM * eta = 0.000120637 * 100 * 0.70 = 0.00844459 m³/min (digit: 0.000120637 ×100 = 0.0120637; ×0.7 = 0.00844459)
+	•	Q_L_per_min = Q_m3_min * 1000 = 8.44459 L/min
+	•	Mass_kg_min = Q_m3_min * 1500 = 12.666885 kg/min
+
+CSV-like rows (RPM steps 10..200)
+Values rounded; the Q_m3_per_min column above correspond to pocket_vol * RPM * eta with pocket_vol=0.000120637 m³/rev.)
+
+How to calibrate empirically (recommended):
+	1.	Run the auger at a set RPM (e.g., 50 RPM) for a timed interval, collect extruded mass (or volume) and measure actual mass/volume output.
+	2.	Compute measured Q_meas = mass_meas / density / time_min.
+	3.	Compute correction factor κ = Q_meas / Q_theoretical.
+	4.	Update the table Q_corrected = κ * Q_theoretical. Use corrected values to map auger RPM commands in real runs.
