@@ -9,7 +9,48 @@ if uploaded:
     import pandas as pd
     df = pd.read_csv(uploaded)
     st.write(df.head())
-    
+
+import sys, os, platform
+
+def load_freecad():
+    candidate_paths = []
+    system = platform.system()
+
+    if system == "Windows":
+        candidate_paths += [
+            r"C:\Program Files\FreeCAD 0.21\bin",
+            r"C:\Program Files\FreeCAD 0.20\bin",
+            r"C:\Program Files\FreeCAD\bin",
+        ]
+
+    elif system == "Darwin":
+        base = "/Applications/FreeCAD.app/Contents/Resources/lib"
+        if os.path.isdir(base):
+            for v in os.listdir(base):
+                p = os.path.join(base, v, "site-packages")
+                if os.path.isdir(p):
+                    candidate_paths.append(p)
+
+    elif system == "Linux":
+        candidate_paths += [
+            "/usr/lib/freecad/lib",
+            "/usr/share/freecad/Mod",
+        ]
+
+    for p in candidate_paths:
+        if os.path.isdir(p):
+            sys.path.append(p)
+            try:
+                import FreeCAD
+                return FreeCAD
+            except:
+                pass
+
+    raise RuntimeError("Could not load FreeCAD")
+
+FreeCAD = load_freecad()
+import Part
+
 # ---------------------------------------------------------
 # PARAMETERS
 # ---------------------------------------------------------
