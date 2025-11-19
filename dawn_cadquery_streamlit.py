@@ -1,7 +1,3 @@
-# dawn_cadquery_streamlit.py
-# Single-file CadQuery + Streamlit app producing multiple Dawn Colony parametric parts.
-# Requires: cadquery, streamlit. Optional: pythonocc-core for STEP export.
-
 import cadquery as cq
 import streamlit as st
 import io
@@ -220,6 +216,9 @@ try:
         st.write("STEP export not available in this environment.")
 except Exception as e:
     st.error(f"Preview/export failed: {e}")
-
+# Attempt to export STEP binary bytes; fallback to message if not supported
+try:
+    b = solid.val().exportStepString()
+    
 st.write("---")
 st.markdown("Adjust parameters in the sidebar and re-run export. These parts are parametric templates — refine them for manufacturing.")
