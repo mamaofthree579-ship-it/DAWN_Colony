@@ -1,0 +1,4 @@
+cadquery 
+streamlit 
+pythonocc-core 
+numpy
