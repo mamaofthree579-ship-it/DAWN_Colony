@@ -40,7 +40,7 @@ def load_calibration(path):
             })
     return table
 
-cal_table = load_calibration(CALIBRATION_CSV)
+cal_table = load_calibration (CSV)
 
 # ---------------------------------------------------------
 # MAP REQUIRED FLOW -> RPM USING LINEAR INTERPOLATION
