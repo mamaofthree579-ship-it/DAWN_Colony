@@ -1,63 +1,81 @@
 import math
+import os
 import csv
 
 # ---------------------------------------------------------
-# USER PARAMETERS
+# PARAMETERS
 # ---------------------------------------------------------
 
-# Dome geometry (meters)
-R = 3.0               # dome radius
-theta_max = math.radians(70)  # spherical cap angle
-
-# Toolpath parameters
-bead_width = 0.03     # m   (30 mm)
-overlap = 0.15        # 15% overlap
+R = 3.0                       # dome radius (meters)
+bead_width = 0.03             # 30 mm bead
+overlap = 0.15
 spacing = bead_width * (1 - overlap)
 
-dphi = math.radians(0.5)   # angular resolution of spiral
+theta_max = math.radians(70)
+dphi = math.radians(0.5)
 
-# Feedrate
-F_mm_min = 1800  # 1800 mm/min = 30 mm/s typical for thick material
+F_mm_min = 1800  # 30 mm/s
 
-# Auger calibration table path
-CSV = "/auger_calibration.csv"
-
-# Output G-code path
+CALIBRATION_CSV = "auger_calibration.csv"
 OUTPUT_GCODE = "dawn_dome_spiral.gcode"
 
 # ---------------------------------------------------------
-# LOAD AUGER CALIBRATION TABLE
+# ENSURE CALIBRATION TABLE EXISTS
 # ---------------------------------------------------------
 
-def load_calibration(path):
+DEFAULT_TABLE = [
+    {"RPM": 10, "Q_m3_per_min": 0.00020},
+    {"RPM": 20, "Q_m3_per_min": 0.00036},
+    {"RPM": 30, "Q_m3_per_min": 0.00050},
+    {"RPM": 40, "Q_m3_per_min": 0.00064},
+    {"RPM": 50, "Q_m3_per_min": 0.00078},
+]
+
+def ensure_calibration_csv():
+    if not os.path.exists(CALIBRATION_CSV):
+        print("⚠️ No calibration CSV found. Generating default table...")
+        with open(CALIBRATION_CSV, "w", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=["RPM", "Q_m3_per_min"])
+            writer.writeheader()
+            for row in DEFAULT_TABLE:
+                writer.writerow(row)
+        print(f"✔ Default calibration saved to {CALIBRATION_CSV}")
+    else:
+        print(f"✔ Found calibration file: {CALIBRATION_CSV}")
+
+ensure_calibration_csv()
+
+# ---------------------------------------------------------
+# LOAD TABLE
+# ---------------------------------------------------------
+
+def load_calibration():
     table = []
-    with open(path) as f:
+    with open(CALIBRATION_CSV) as f:
         reader = csv.DictReader(f)
         for row in reader:
             table.append({
                 "rpm": float(row["RPM"]),
-                "Q_m3_min": float(row["Q_m3_per_min"])
+                "Q": float(row["Q_m3_per_min"])
             })
+    print(f"✔ Loaded {len(table)} calibration points.")
     return table
 
-cal_table = load_calibration (CSV)
+cal_table = load_calibration()
 
 # ---------------------------------------------------------
-# MAP REQUIRED FLOW -> RPM USING LINEAR INTERPOLATION
+# MAP FLOW → RPM
 # ---------------------------------------------------------
 
 def rpm_for_flow(Q):
-    # Q is desired volumetric flow m³/min
-    # clamp if outside table
-    if Q <= cal_table[0]["Q_m3_min"]:
+    if Q <= cal_table[0]["Q"]:
         return cal_table[0]["rpm"]
-    if Q >= cal_table[-1]["Q_m3_min"]:
+    if Q >= cal_table[-1]["Q"]:
         return cal_table[-1]["rpm"]
 
-    # linear interpolation
-    for i in range(len(cal_table)-1):
-        q1 = cal_table[i]["Q_m3_min"]
-        q2 = cal_table[i+1]["Q_m3_min"]
+    for i in range(len(cal_table) - 1):
+        q1 = cal_table[i]["Q"]
+        q2 = cal_table[i+1]["Q"]
         if q1 <= Q <= q2:
             r1 = cal_table[i]["rpm"]
             r2 = cal_table[i+1]["rpm"]
@@ -67,58 +85,57 @@ def rpm_for_flow(Q):
     return cal_table[-1]["rpm"]
 
 # ---------------------------------------------------------
-# GENERATE SPIRAL
+# GENERATE SPIRAL POINTS
 # ---------------------------------------------------------
 
-points = []
+print("⟳ Generating dome spiral…")
 
+points = []
 phi = 0.0
+
 while True:
-    r = spacing * phi / (2*math.pi)      # Archimedean spiral in plane
-    theta = r / R                        # project to spherical
+    r = spacing * phi / (2*math.pi)
+    theta = r / R
+
     if theta > theta_max:
         break
 
-    # spherical to Cartesian
     x = R*math.sin(theta)*math.cos(phi)
     y = R*math.sin(theta)*math.sin(phi)
     z = R*math.cos(theta)
 
-    # convert meters → mm
     points.append((x*1000, y*1000, z*1000))
     phi += dphi
 
+print(f"✔ Generated {len(points)} toolpath points.")
+
 # ---------------------------------------------------------
-# GENERATE G-CODE WITH AUGER RPM CONTROL
+# WRITE GCODE
 # ---------------------------------------------------------
+
+print(f"💾 Writing G-code to {OUTPUT_GCODE}…")
 
 with open(OUTPUT_GCODE, "w") as g:
-    g.write("; Dawn Colony — Spiral Dome Toolpath\n")
-    g.write("G21 ; mm units\n")
-    g.write("G90 ; absolute coordinates\n")
+    g.write("; Dawn Colony – Spiral Dome Toolpath\n")
+    g.write("G21 ; mm\nG90 ; absolute\n\n")
 
-    # Move to first point
-    x0, y0, z0 = points[0]
+    x0,y0,z0 = points[0]
     g.write(f"G1 X{x0:.3f} Y{y0:.3f} Z{z0:.3f} F{F_mm_min}\n")
 
-    # Iterate toolpath
     for i in range(1, len(points)):
-        x1, y1, z1 = points[i]
-        # segment length (mm → m)
+        x1,y1,z1 = points[i]
+
         dx = (x1 - points[i-1][0])/1000
         dy = (y1 - points[i-1][1])/1000
         dz = (z1 - points[i-1][2])/1000
         L = math.sqrt(dx*dx + dy*dy + dz*dz)
 
-        # volumetric flow needed
-        Q = bead_width * bead_width * L * (F_mm_min/60000)  # m³/min approx
+        # approximate volumetric flow per minute
+        Q = bead_width * bead_width * L * (F_mm_min/60000)
 
         rpm = rpm_for_flow(Q)
 
-        # Write RPM command (custom M-code)
-        g.write(f"M900 R{rpm:.2f} ; set auger rpm\n")
+        g.write(f"M900 R{rpm:.2f}\n")
         g.write(f"G1 X{x1:.3f} Y{y1:.3f} Z{z1:.3f} F{F_mm_min}\n")
 
-    g.write("; DONE\n")
-
-print("Generated:", OUTPUT_GCODE)
+print("✔ DONE — Your G-code is ready.")
