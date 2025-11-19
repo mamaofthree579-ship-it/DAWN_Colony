@@ -62,3 +62,7 @@ module assemble_dome_with_ribs(){
 
 // render
 assemble_dome_with_ribs();
+
+Notes:
+	•	This is a conceptual generator intended for quick prototyping. Ribs are placed as approximated extrusions oriented to the local surface normal — you’ll likely refine orientation/fitting in your CAD/CAM workflow.
+	•	Adjust R, shell_thickness, rib_spacing, rib_height, etc. to suit your design targets. Export as STL for CAM/CAD toolpath generation.
