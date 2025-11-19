@@ -3,8 +3,13 @@ import os
 import csv
 import streamlit as st
 
-st.write("Working directory:", os.getcwd())
-st.write("Files:", os.listdir())
+uploaded = st.file_uploader("Upload your CSV")
+
+if uploaded:
+    import pandas as pd
+    df = pd.read_csv(uploaded)
+    st.write(df.head())
+    
 # ---------------------------------------------------------
 # PARAMETERS
 # ---------------------------------------------------------
