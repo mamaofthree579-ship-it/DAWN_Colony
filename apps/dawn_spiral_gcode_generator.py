@@ -1,7 +1,10 @@
 import math
 import os
 import csv
+import streamlit as st
 
+st.write("Working directory:", os.getcwd())
+st.write("Files:", os.listdir())
 # ---------------------------------------------------------
 # PARAMETERS
 # ---------------------------------------------------------
