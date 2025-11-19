@@ -20,7 +20,7 @@ dphi = math.radians(0.5)   # angular resolution of spiral
 F_mm_min = 1800  # 1800 mm/min = 30 mm/s typical for thick material
 
 # Auger calibration table path
-CALIBRATION_CSV = "auger_calibration.csv"
+CSV = "auger_calibration.csv"
 
 # Output G-code path
 OUTPUT_GCODE = "dawn_dome_spiral.gcode"
