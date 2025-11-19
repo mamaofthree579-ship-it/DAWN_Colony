@@ -1,0 +1,18 @@
+Spiral toolpath mapping & example pseudocode (how to convert dome surface → continuous toolpath)
+
+Use this approach to generate the continuous spiral path over a spherical cap:
+	1.	Choose dome radius R (m) and dome maximum polar angle θ_max (radians) corresponding to dome height.
+	2.	Choose spiral radial growth parameter b that sets spacing between successive spiral turns (so that projected bead spacing ≈ nozzle width × (1 - overlap)).
+	3.	Loop φ from 0 to φ_max with small increments Δφ (e.g., 0.5° → 0.008727 rad), compute planar radial r = b * φ, then θ = r / R, then map to Cartesian via:
+	•	x = R * sin(θ) * cos(φ)
+	•	y = R * sin(θ) * sin(φ)
+	•	z = R * cos(θ)
+	4.	Convert coordinates to your printer frame (units mm) and output motion commands; compute volumetric extrusion per mm of path from your auger calibration and set auger RPM accordingly.
+
+Pseudo-G-code logic snippet
+
+for each point in spiral_points:
+  MOVE_LINEAR x,y,z at feedrate F
+  set auger_RPM = lookup_RPM_for_vol(flow_rate_per_mm * path_segment_length)
+  command auger to RPM (closed-loop by inline pressure sensor)
+endfor
