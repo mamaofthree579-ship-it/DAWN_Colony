@@ -2,22 +2,25 @@ import streamlit as st
 from build123d import *
 import numpy as np
 
-st.title("Blueprint + Parametric CAD Generator (build123d)")
+st.title("Blueprint + Parametric CAD Generator (Headless Mode)")
 
 height = st.number_input("Height", value=20.0)
 radius = st.number_input("Radius", value=10.0)
 
-# Build model
 with BuildPart() as model:
     Cylinder(radius=radius, height=height)
 
-# Export
+# Export STEP
 step_data = model.part.export_step_string()
 
-# Display confirmation
-st.write("3D Model Generated Successfully.")
+# Generate 2D SVG projection (top view)
+svg_top = model.part.project_to_viewport("top").svg()
 
-# Download
+# Visualization
+st.subheader("Top View (SVG Projection)")
+st.image(svg_top)
+
+# Download STEP
 st.download_button(
     label="Download STEP File",
     data=step_data,
