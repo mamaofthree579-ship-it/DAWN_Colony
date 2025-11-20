@@ -1,0 +1,143 @@
+MODULE 6 — GEOTHERMAL ENERGY & PLANETARY HEAT EXCHANGE ARRAY (GPEA-06)
+
+Revision: A
+Classification: Civil / Energy Infrastructure
+Function: Primary thermal regulation + supplemental power generation
+Applicable Systems: MHS-01 through APW-02 integration
+
+1.0 FUNCTIONAL DESCRIPTION
+
+The Geothermal Energy & Planetary Heat Exchange Array (GPEA-06) provides:
+	•	Deep-bore thermal energy extraction (3.2–11.4 kW continuous per bore).
+	•	Habitat temperature buffering and cooling/heating load reduction.
+	•	Planetary thermal stability around the settlement (micro-climate modulation).
+	•	Emergency backup heat source independent of solar conditions.
+	•	Heat-sink interface for industrial units (metal printing, regolith sintering).
+
+This module is a distributed, radial, shallow–to–mid-depth thermal system, optimized for Mars’ crustal composition and low atmospheric convective efficiency.
+
+⸻
+
+2.0 STRUCTURAL GEOMETRY
+
+2.1 Surface Superstructure
+	•	Support Ring Diameter: 14.2 m
+	•	Central Service Dome Height: 4.8 m
+	•	Exterior Material: Regolith composite + basalt fiber reinforcement
+	•	Anchor Rods: 18 titanium-alloy subsurface rods, 2.4 m depth
+
+2.2 Radial Bore Array
+
+          (Top View)
+               ↑ N
+         B3     B2     B1
+        B4      •      B0
+         B5     B6     B7
+
+	•	Number of Bore Shafts: 8 (expandable to 12)
+	•	Bore Diameter: 0.45 m
+	•	Bore Depth: 80–230 m depending on subsurface thermal gradient
+	•	Spacing Between Bores: 12° symmetry (8-array), radial distance 18 m
+
+⸻
+
+3.0 MATERIAL SYSTEMS
+
+3.1 Bore Lining
+	•	Inner lining: Ceramic-silicate thermal barrier (rated to 540°C)
+	•	Middle layer: Myco-polymer flexibility buffer (crack-resistant)
+	•	Outer shell: Regolith-derived sintered cylinder
+
+3.2 Pipe System
+	•	Heat-transfer tubing: Titanium-Aluminum-Vanadium Alloy (Ti-6Al-4V)
+	•	Coolant: Water-glycol-nanoparticle PCM mixture (phase-change enhanced)
+	•	Flow pumps: Magnetic-drive, brushless, radiation-hardened
+
+3.3 Heat Exchange Manifold
+	•	316L stainless steel
+	•	Triple-insulated thermal isolation valving
+	•	High-temperature ceramic quick-disconnects
+
+⸻
+
+4.0 SYSTEM OPERATION
+
+4.1 Primary Heat Mode (Extraction)
+
+Heat drawn from deep subsurface → circulated via PCM-enhanced coolant → transferred into:
+	•	Habitat hydronic loops
+	•	Air handling units
+	•	Agricultural grow tower thermal stabilizers
+
+Average extraction: 3.2 kW per bore
+Max combined output (8 bores): 25–26 kW continuous
+
+4.2 Reverse Mode (Heat Dumping)
+
+Industrial processes generate excess heat → coolant loops transfer → deep crust sinks dissipate energy.
+
+Dump capacity: 40–72 kW peak
+Necessary for smelters, 3D metal sintering, and life-support heat spikes.
+
+⸻
+
+5.0 INTERNAL LAYOUT
+
+5.1 Central Service Dome
+	•	Control manifold
+	•	Flow regulators
+	•	Phase-change tanks
+	•	Redundant pump array
+	•	Heat monitoring consoles
+
+5.2 Subsurface Vault (~6 m below grade)
+	•	Primary exchanger
+	•	Power regulation bus
+	•	Coolant storage
+	•	Emergency shutoff valves
+
+⸻
+
+6.0 INTER-MODULE INTEGRATION
+
+6.1 Mechanical Interfaces
+	•	Compatible with MHS-01 hydronic loop
+	•	Direct thermal coupling to:
+	•	Module 4 Subterranean Agricultural Bio-System
+	•	Module 5 Vertical Hydroponic & Mycotecture Complex
+
+6.2 Power Interfaces
+	•	Supplies:
+	•	4–10 kW stable thermal-equivalent energy
+	•	Receives:
+	•	2 kW control power from main grid
+	•	Provides:
+	•	Passive emergency thermal fallback (no power required)
+
+6.3 Data Interfaces
+	•	Temperature probes (48 total)
+	•	Vibration and bore integrity sensors
+	•	Quantum-clock synced loggers
+
+⸻
+
+7.0 SAFETY + REDUNDANCY
+	•	Triple-pump redundancy (any pump failure triggers auto-valve reroute).
+	•	Bore integrity detectors shut down affected bore in <350 ms.
+	•	Overpressure relief into subterranean buffer tanks.
+	•	Seismic compensation rings to handle minor marsquakes.
+	•	Designed for: 300-year structural lifespan (non-mechanical components).
+
+⸻
+
+8.0 INSTALLATION SEQUENCE
+	1.	Conduct thermal gradient mapping via rover seismic pings
+	2.	Drill pilot bores (diamond rotary)
+	3.	Ream to 0.45 m diameter
+	4.	Print regolith lining cylinders in situ
+	5.	Insert myco-polymer buffer sheath
+	6.	Install heat-transfer shafts
+	7.	Construct service dome
+	8.	Integrate manifold + pumps
+	9.	Pressurize coolant system
+	10.	Full thermal cycle test (48 hours)
