@@ -1,3 +1,4 @@
-build123d
+build123d==0.5.0
+cadquery==2.3.1
 streamlit
 numpy
