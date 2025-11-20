@@ -1,0 +1,191 @@
+Module 4 — SUBTERRANEAN AGRICULTURAL BIOSYSTEMS COMPLEX (SAB-04)
+
+Revision: A
+Purpose: High-yield food production, oxygen generation, bio-material production, biome stability
+Placement: Fully or partially subterranean to maximize thermal stability and radiation shielding
+
+4.0 SYSTEM OVERVIEW
+
+The Subterranean Agricultural Biosystems Complex (SAB-04) is the primary biological production and carbon cycling heart of the Dawn Colony. It anchors:
+	•	Food production (fungal, hydroponic, aeroponic, soil-based experimental plots)
+	•	O₂ production and CO₂ uptake
+	•	Mycelial fabrication substrate (for construction + bioplastics)
+	•	Ecological psychological support (bioluminescent groves, sensory gardens)
+	•	Genetic seed vault and micro-ecological diversity chambers
+
+This module is designed for fully redundant, multi-species, multi-layer agriculture optimized for Mars gravity, low atmospheric pressure, limited water, and internal nutrient cycling.
+
+⸻
+
+4.1 GEOMETRIC + STRUCTURAL SPECIFICATION
+
+4.1.1 General Geometry
+	•	Primary Shape: Tri-radial vault system
+	•	Depth: 8–14 m below surface
+	•	Total Pressurized Volume: 6,400 m³
+	•	Span per Vault: 22 m
+	•	Central Atrium Height: 12 m
+	•	Vault Ceiling Type: Catenary curve — optimal for compression load in regolith
+
+4.1.2 Structural Composition
+
+Vault Shell Layers (Exterior → Interior):
+	1.	Compacted regolith layer (0.8–2 m)
+	2.	Sintered regolith load-bearing vault (primary structure)
+	3.	Myco-polymer composite binder mesh
+	4.	Pressure containment shell
+	5.	Bio-reactive interior panels (anti-fungal tuned, except in fungal sectors)
+
+⸻
+
+4.2 INTERNAL ZONES
+
+The SAB-04 complex includes six functional agricultural ecosystems, each tuned to different purposes and metabolic loads.
+
+⸻
+
+4.2.1 Zone A — Myco-Fabrication Chamber (MFC)
+
+Purpose:
+	•	Biopolymer production
+	•	Mycelial construction substrate
+	•	Insulation panels and regolith-binder interface materials
+
+Specs:
+	•	Humidity: 75–92%
+	•	Temp: 19–24°C
+	•	Atmosphere: CO₂ enriched to 1.2–1.7%
+	•	Output: 2.4–6.1 tons/month of biofabrication substrate
+
+Subsystems:
+	•	Autonomous nutrient injection loops
+	•	UV sterilization rails
+	•	Growth-morphology LiDAR scanners
+
+⸻
+
+4.2.2 Zone B — Hydroponic Corridor (HPC)
+
+Focus Crops: Leafy greens, herbs, algae, rapid-cycle oxygen producers
+
+Specs:
+	•	Lighting: 320–410 μmol/m²/s
+	•	Nutrient Loop: Closed-cycle mineralization from reactor waste stream
+	•	Redundant water lines
+	•	Produce Yield: 35–60 kg/day (initial), doubling with expansion
+
+Features:
+	•	Modular rack towers (up to 6 vertical levels)
+	•	Energy-efficient spectrum-tuned LEDs
+	•	Robotic harvesting arms
+
+⸻
+
+4.2.3 Zone C — Aeroponic Root Chamber (ARC)
+
+High-efficiency crop zone for tubers, legumes, root vegetables
+
+Specs:
+	•	Fog density: 20–60 microns droplet size
+	•	Oxygenation rate: 4x Earth-standard for root enhancement in low gravity
+	•	Yield: 40–75 kg/day
+
+Capabilities:
+	•	Microbial root symbiosis optimization
+	•	Fungal-antagonist control by targeted myco-fog
+
+⸻
+
+4.2.4 Zone D — Bioluminescent Forest Atrium (BFA)
+
+Purpose:
+	•	Crew mental health
+	•	Light-cycle entrainment
+	•	Biological diversity
+	•	Additional O₂ generation
+
+Features:
+	•	Gene-edited bioluminescent mosses & small woody species
+	•	Humidity pockets with micro-ponds
+	•	Walkable paths
+	•	Day-night lighting cycles mimicking Earth solar rhythm
+
+Atmospheric Specs:
+	•	Temp: 18–22°C
+	•	Humidity: 42–55%
+	•	Lighting: Soft-spectrum (night luminescence only)
+
+⸻
+
+4.2.5 Zone E — Crop-Soil Biodiversity Lab (CSBL)
+
+Purpose:
+	•	True soil-based agriculture experiments in Martian regolith blends
+	•	Rhizosphere microbiome engineering
+	•	In-situ terraforming prototyping
+
+Specimen beds:
+	•	14 soil beds, 2 × 5 m each
+	•	Regolith blend ratios automatically managed
+	•	Microbial inoculation banks
+
+⸻
+
+4.2.6 Zone F — Seed Vault & Genomic Archive (SVGA)
+	•	Cryogenic vaults with multi-redundant power
+	•	Genetic archives of Earth species
+	•	Martian-adapted strain repository
+	•	Radiation shielding equal to 12–16 m packed regolith
+
+⸻
+
+4.3 WATER + ATMOSPHERE SYSTEMS
+
+4.3.1 Water Cycling
+	•	Melt extraction (if available)
+	•	Atmospheric moisture recovery from pressurized zones
+	•	Greywater bio-filtration loops
+	•	Fungal biofilters for nitrogen cycling
+
+4.3.2 Atmospheric Cycling
+	•	CO₂ from habitation sectors routed in
+	•	O₂ returned to main life-support trunk
+	•	Multi-species, multi-stage gas scrubbing racks
+	•	14 air-quality sensor types per vault
+
+⸻
+
+4.4 LIGHTING + ENERGY
+
+Lighting
+	•	Triple-spectrum LED arrays
+	•	Bioluminescent supplemental lighting (Zone D)
+	•	Motion-sensor dimming in low-traffic corridors
+
+Energy
+	•	22 kW baseline
+	•	46 kW peak (harvest/sterilization cycles)
+	•	Emergency power: flywheel + microreactor feed
+
+⸻
+
+4.5 SAFETY + REDUNDANCY
+	•	Triple pressure seals
+	•	Fire suppressant: oxygen-starvation foam (plant safe)
+	•	Nutrient line redundancies (x3)
+	•	Biosecurity lock between each Zone
+	•	Microbial drift prevention systems
+
+⸻
+
+4.6 CONSTRUCTION SEQUENCE (HIGH-LEVEL)
+	1.	Tunnel bots carve tri-radial vaults
+	2.	Thermal anchoring rods placed
+	3.	Sintered vault printed in-situ
+	4.	Pressure shells installed
+	5.	Nutrient/water networks scaffolded
+	6.	Myco-substrate seeded for interior finishing
+	7.	Agricultural racks installed
+	8.	Environmental systems activated
+	9.	Biological seeding begins
+	10.	Full-cycle biosystem initiation (≃ 26 days)
