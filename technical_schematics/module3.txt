@@ -1,0 +1,188 @@
+Module 2 — Atmospheric Processing & Water Extraction Hub (APW-02)
+
+Revision: A
+Authoring System: DAWN Engineering Core
+Format: Blueprint-spec textual engineering sheet
+Purpose: Harvesting, refining, storing, and distributing water and atmospheric gases on Mars
+
+1.0 FUNCTIONAL DESCRIPTION
+
+The Atmospheric Processing & Water Extraction Hub (APW-02) serves as the colony’s:
+	•	Primary water acquisition and purification module
+	•	Atmospheric conversion and storage plant
+	•	Source of oxygen, nitrogen, and argon for the habitat
+	•	Feedstock provider for fuel production and agricultural humidity stabilization
+	•	Redundancy node for environmental autonomy if the Main Habitat Superstructure (MHS-01) experiences isolation
+
+This module runs autonomously with intelligent feedback loops, capable of sustaining up to 72 personnel across the Dawn Colony network.
+
+⸻
+
+2.0 STRUCTURAL GEOMETRY
+
+2.1 General Form
+	•	Main Shape: Cylindrical processing stack seated on a hex-foundation
+	•	Height: 11.6 m
+	•	Base Diameter: 16.4 m
+	•	Internal Volume: ~890 m³
+	•	Exterior Casing Angle: Slightly tapered (6°) for dust shedding
+
+2.2 Internal Zoning
+[Tier 3] Atmospheric Fractionation & Cryogenic Section  
+[Tier 2] Electrolysis Hall + Gas Storage Ring  
+[Tier 1] Water Extraction, Intake Manifold, Filtration  
+[Subfloor] Heat Exchange Wells + Ice Vaporization Beds
+
+2.3 Load Bearing
+	•	Triple-laminate regolith composite shell
+	•	Spiral internal reinforcement ribs (basalt-fiber polymer)
+	•	Floor load rating: 14 kN/m²
+
+⸻
+
+3.0 CORE SYSTEMS
+
+3.1 Atmospheric Harvesting Intake
+	•	Multi-stage compressor pulling 0.02–0.06 kg/m³ atmosphere
+	•	Electrostatic dust scrubbers
+	•	Gas routing to fractionation column
+
+Flow Rate:
+	•	~1,300–1,900 L/min (Mars ambient pressure)
+
+3.2 Fractionation Tower
+
+Separates atmospheric constituents using pressure swing, cryogenic cooling, and membrane partitions.
+
+Output Purity Targets:
+	•	CO₂: 98–99% (fuel & plant bioreactor feedstock)
+	•	N₂: 92–95% (buffer gas for habitats)
+	•	Ar: 96–97% (shield gas, scientific usage)
+	•	O₂: See electrolysis below
+
+⸻
+
+4.0 WATER EXTRACTION GRID
+
+4.1 Regolith Vaporization Beds
+	•	Heated to 240–315°C
+	•	Extracts adsorbed water molecules
+	•	Efficiency: 0.6–2.8% by mass depending on site regolith
+
+4.2 Subsurface Ice Lances
+
+Extend 4–15 m into permafrost bands.
+	•	Microwave lances melt/break ice
+	•	Water vapor channeled upward to condensers
+	•	Redundancy: 12 lances in a ring formation
+
+Yield (site-dependent):
+	•	8–22 L/hr using regolith extraction
+	•	Up to 180–260 L/hr with ice-rich terrain
+
+⸻
+
+5.0 WATER PURIFICATION & STORAGE
+
+5.1 Purification Path
+	1.	Mechanical particulate filtration
+	2.	Reverse-osmosis microfilters
+	3.	UV-C sterilization
+	4.	Mineral rebalancing & pH correction
+
+Output: Potable water at Earth-grade human standards
+Purification throughput: 400–520 L/hr
+
+5.2 Storage Architecture
+	•	Central Tank: 12,000 L
+	•	Distributed Pods: 6 × 4,000 L
+	•	Frost-proof myco-regolith insulation
+	•	Internal thermal loops prevent freezing
+
+⸻
+
+6.0 OXYGEN PRODUCTION & GAS HANDLING
+
+6.1 Solid Oxide Electrolyzer (SOE) Bank
+	•	8 × high-efficiency ceramic SOE units
+	•	Converts CO₂ → CO + O₂
+	•	Operating temperature: 700–850°C
+
+Oxygen Output:
+	•	3.2–5.0 kg O₂/hr continuous
+	•	Redundant LOX (liquid O₂) cooling for storage
+
+6.2 Gas Storage Ring
+
+Located at Tier 2 along exterior circle.
+
+Capacities:
+	•	O₂: 6,200 L (compressed)
+	•	N₂: 7,500 L
+	•	Ar: 1,800 L
+	•	CO₂: 11,000 L
+
+Modules rated for 30-year fatigue cycle under Mars cold-cycle stresses.
+
+⸻
+
+7.0 THERMAL MANAGEMENT
+
+7.1 Radiative Cooling Panels
+	•	Mounted on shaded west-facing side
+	•	Reject up to 14 kW thermal load
+
+7.2 Heat Recovery
+
+Waste heat recycled to:
+	•	Ice vaporization beds
+	•	Habitat hydronic systems
+	•	Myco-foundry warm chambers
+
+⸻
+
+8.0 POWER SYSTEMS
+	•	Draw: 22–28 kW continuous
+	•	Primary supply: Fusion microreactor & solar array
+	•	Onboard battery: 110 kWh LiFePO₄ cluster
+	•	Critical systems runtime: 14 hours independent
+
+⸻
+
+9.0 CONTROL & AUTONOMY
+
+Features:
+	•	Predictive ice-mapping AI
+	•	Atmospheric composition forecasting
+	•	Dust storm defensive shutdown routines
+	•	Mycelial “smart mesh” sensors for microfracture monitoring
+
+⸻
+
+10.0 INTERFACE POINTS
+	•	3 docking ports: Utility-only (Type-U)
+	•	Main conduit link: To MHS-01 for water + O₂
+	•	Fiber-optic data link: 40 Gbps colony backbone
+
+⸻
+
+11.0 SAFETY + REDUNDANCY
+	•	Triple pressure chamber redundancy
+	•	Thermal runaway prevention failsafes
+	•	Independence: Can keep colony alive in “Habitat Failure Scenario” for 9–12 days
+	•	Explosion mitigation channels vent upward safely
+
+⸻
+
+12.0 CONSTRUCTION SEQUENCE
+
+High-Level Steps
+	1.	Deploy sintering bots → print foundation pad
+	2.	Drill ice lances + vaporization beds
+	3.	Install main cylinder shell (printed from regolith + myco binder)
+	4.	Insert fractionation tower + SOE units
+	5.	Mount radiators + gas tanks
+	6.	Install control systems
+	7.	Link to MHS-01 backbone
+	8.	Atmosphere/pressure test
+	9.	Bring online in staged power-up
