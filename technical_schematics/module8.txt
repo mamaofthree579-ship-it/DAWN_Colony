@@ -1,0 +1,40 @@
+
+🔩 Technical Specification Sheet: ROB-08
+
+
+Module 8 — Automated Mining & Sintering Rover Depot (ROB-08)
+
+Revision: A
+Classification: Autonomous Heavy Industrial Robotics Platform
+Primary Function: Continuous resource extraction, slurry material transport, and in-situ multi-axis printing/sintering.
+
+1.0 Functional Description
+
+The Automated Mining & Sintering Rover Depot (ROB-08) serves as the primary physical logistics vehicle network for the Dawn Colony. It manages:
+• Strip-mining of surface regolith down to 1.5 meters depth.
+• Sorting and mechanical screening of raw geological matrices (separating coarse basalt aggregates from high-silica dust).
+• Mixing and hydration of the geopolymer composite slurry using recycled waste water or raw subsurface meltwater streams.
+• Autonomous multi-axis robotic-arm extrusion pathing to construct modules in-situ without manual scaffolding.
+
+2.0 Subsystems & Fleet Composition
+
+The depot consists of three standardized autonomous vehicle platforms communicating via the PCS-07 Phased Array Microwave Mesh Network:
+
+2.1 Fleet Vector A: Excavator-Hauler Node (EHN-01)
+
+• Mass: \(11,500\text{ kg}\) (Martian Working Gravity Weight Equivalent: \(4,370\text{ kg}\)).
+• Drive Configuration: 6-wheel high-clearance titanium mesh wheels with integrated in-wheel brushless magnetic drives.
+• Payload Capacity: \(8.5\text{ m}^3\) raw regolith capacity per cycle.
+
+2.2 Fleet Vector B: Mobile Sintering & Printing Unit (MPU-02)
+
+• Arm Geometry: 6-Axis industrial articulation system with a \(6.2\text{ m}\) total reach envelope.
+• Print Head Assembly: Outfitted with the calibrated 80 mm auger extruder driven by high-torque closed-loop stepper motors.
+• Thermal Core: Integrated \(10.6\ \mu\text{m}\) \(\text{CO}_{2}\) laser optics array (continuous 4.5 kW thermal output) for precision sintering of geopolymer margins.
+
+3.0 Operational Metrics
+
+• Continuous Travel Power Draw: 8.5 kW nominal.
+• Peak Layer Deposition Draw (Auger Extrusion + Laser Sintering active): 28 kW.
+• Onboard Energy Bank: \(150\text{ kWh}\) Lithium-Glass solid-state battery array paired with top-mounted self-cleaning solar collection wings.
+• Navigational Autonomy System: Dual-frequency LiDAR path mapping matched with an real-time edge-computing navigation deck to process toolpaths during localized communications blackouts.
